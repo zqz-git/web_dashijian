@@ -37,7 +37,7 @@ $(function(){
         // console.log(param)
         $.ajax({
             type:'POST',
-            url:'git/api/reguser',
+            url:'/api/reguser',
             data:param,
             success:function(res){
                 console.log(res)
@@ -55,7 +55,9 @@ $(function(){
         $.post('/api/login',param,function(res){
             console.log(res)
             layer.msg('登录成功');
-            
+            localStorage.setItem('token',res.token)
+            // 跳转到后台页面
+            location.href='./index.html'
         })
     })
 })
